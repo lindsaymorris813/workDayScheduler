@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>Work Day Scheduler</title>
+</head>
+
+<body>
+  <header class="jumbotron">
+    <h1 class="display-3">Work Day Scheduler</h1>
+    <p class="lead">A simple calendar app for scheduling your work day</p>
+    <p id="currentDay" class="lead"></p>
+  </header>
+  <div class="container" id="calendar">
+    <div class="row input-group">
+      <div class="col-md-1 p-4 text-left hour">9am</div>
+      <textarea class="col-md-10 form-control time-block description" id="9am-block" data-hour="9"></textarea>
+      <button class="btn p-4 col-md-1 saveBtn" id="9am-save" value = "9"><i class="far fa-save"></i></button>
+    </div>
+    <div class="row input-group">
+      <div class="col-md-1 p-4 hour text-left">10am</div>
+      <textarea class="col-md-10 form-control time-block description" id="10am-block" data-hour="10"></textarea>
+      <button class="btn p-4 col-md-1 saveBtn" id="10am-save" value = "10"><i class="far fa-save"></i></button>
+    </div>
+    <div class="row input-group">
+      <div class="col-md-1 p-4 hour text-left">11am</div>
+      <textarea class="col-md-10 form-control time-block description" id="11am-block" data-hour="11"></textarea>
+      <button class="btn p-4 col-md-1 saveBtn" id="11am-save" value = "11"><i class="far fa-save"></i></button>
+    </div>
+    <div class="row input-group">
+      <div class="col-md-1 p-4 hour text-left">12pm</div>
+      <textarea class="col-md-10 form-control time-block description" id="12pm-block" data-hour="12"></textarea>
+      <button class="btn p-4 col-md-1 saveBtn" id="12pm-save" value = "12"><i class="far fa-save"></i></button>
+    </div>
+    <div class="row input-group">
+      <div class="col-md-1 p-4 hour text-left">1pm</div>
+      <textarea class="col-md-10 form-control time-block description" id="1pm-block" data-hour="13"></textarea>
+      <button class="btn p-4 col-md-1 saveBtn" id="1pm-save" value = "13"><i class="far fa-save"></i></button>
+    </div>
+    <div class="row input-group">
+      <div class="col-md-1 p-4 hour text-left">2pm</div>
+      <textarea class="col-md-10 form-control time-block description" id="2pm-block" data-hour="14"></textarea>
+      <button class="btn p-4 col-md-1 saveBtn" id="2pm-save" value = "14"><i class="far fa-save"></i></button>
+    </div>
+    <div class="row input-group">
+      <div class="col-md-1 p-4 hour text-left">3pm</div>
+      <textarea class="col-md-10 form-control time-block description" id="3pm-block" data-hour="15"></textarea>
+      <button class="btn p-4 col-md-1 saveBtn" id="3pm-save" value = "15"><i class="far fa-save"></i></button>
+    </div>
+    <div class="row input-group">
+      <div class="col-md-1 p-4 hour text-left">4pm</div>
+      <textarea class="col-md-10 form-control time-block description" id="4pm-block" data-hour="16"></textarea>
+      <button class="btn p-4 col-md-1 saveBtn" id="4pm-save" value = "16"><i class="far fa-save"></i></button>
+    </div>
+    <div class="row input-group">
+      <div class="col-md-1 p-4 hour text-left">5pm</div>
+      <textarea class="col-md-10 form-control time-block description" id="5pm-block" data-hour="17"></textarea>
+      <button class="btn p-4 col-md-1 saveBtn" id="5pm-save" value = "17"><i class="far fa-save"></i></button>
+    </div>
+  </div>
+  <script>
+    var hour9Block = $("#9am-block");
+    var hour10Block = $("#10am-block");
+    var hour11Block = $("#11am-block");
+    var hour12Block = $("#12pm-block");
+    var hour1Block = $("#1pm-block");
+    var hour2Block = $("#2pm-block");
+    var hour3Block = $("#3pm-block");
+    var hour4Block = $("#4pm-block");
+    var hour5Block = $("#5pm-block");
+    var hour9Save = $("#9am-save");
+    var hour10Save = $("#10am-save");
+    var hour11Save = $("#11am-save");
+    var hour12Save = $("#12pm-save");
+    var hour1Save = $("#1pm-save");
+    var hour2Save = $("#2pm-save");
+    var hour3Save = $("#3pm-save");
+    var hour4Save = $("#4pm-save");
+    var hour5Save = $("#5pm-save");
+    //adding current day for jumbotron
+    var date = $("#currentDay");
+    date.html(moment().format('dddd, LL'));
+    var taskObj = [];
+
+    //saving hour blocks to array to run for loop
+    var hoursArray = [hour9Block, hour10Block, hour11Block, hour12Block, hour1Block, hour2Block, hour3Block, hour4Block, hour5Block];
+    var currentTimeOfDay = (moment().format('HH'));
+
+    //function to color code hours based on past, present, and future
+    for (var i = 0; i < 9; i++) {
+      if (parseInt(currentTimeOfDay) > parseInt(hoursArray[i].attr("data-hour"))) {
+        hoursArray[i].attr("class", "col-md-10 form-control past");
+      } else if (parseInt(currentTimeOfDay) === parseInt(hoursArray[i].attr("data-hour"))) {
+        hoursArray[i].attr("class", "col-md-10 form-control present");
+      } else {
+        hoursArray[i].attr("class", "col-md-10 form-control future");
+      }
+    };
+    //Click save button, saves task to task obj
+    $(".saveBtn").on("click", function () {
+      var task = $(this).siblings("textarea").val();
+      var hourBlock = $(this).siblings("textarea").attr("id");
+      var newTask = ({toDo: task, hour: hourBlock});
+      taskObj.push(newTask);
+    localStorage.setItem("schedule", JSON.stringify(taskObj));
+    });
+
+    function renderSchedule() {
+      taskObj = JSON.parse(localStorage.getItem("schedule"));
+      for (var t= 0; t < taskObj.length; t++) {
+        var scheduleTask = taskObj[t].toDo;
+        var scheduleHour = taskObj[t].hour;
+        $("#" + scheduleHour).val(scheduleTask);
+      }
+    }
+
+    renderSchedule();
+  </script>
+
+</body>
+
+</html>
