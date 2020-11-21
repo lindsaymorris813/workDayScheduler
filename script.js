@@ -88,14 +88,12 @@ function renderSchedule() {
     if (render9am === null) {
         return;
     } else {
-        console.log(render9am)
         $("#9am-block").val(render9am.nineAM);
     }
     var render10am = JSON.parse(localStorage.getItem("tenAM"));
     if (render10am === null) {
         return;
     } else {
-        console.log(render10am)
         $("#10am-block").val(render10am.tenAM);
     }
 
@@ -103,7 +101,6 @@ function renderSchedule() {
     if (render11am === null) {
         return;
     } else {
-        console.log(render11am)
         $("#11am-block").val(render11am.elevenAM);
     }
 
@@ -111,7 +108,6 @@ function renderSchedule() {
     if (render12pm === null) {
         return;
     } else {
-        console.log(render12pm)
         $("#12pm-block").val(render12pm.twelvePM);
     }
 
@@ -119,7 +115,6 @@ function renderSchedule() {
     if (render1pm === null) {
         return;
     } else {
-        console.log(render1pm)
         $("#1pm-block").val(render1pm.onePM);
     }
 
@@ -127,7 +122,6 @@ function renderSchedule() {
     if (render2pm === null) {
         return;
     } else {
-        console.log(render2pm)
         $("#2pm-block").val(render2pm.twoPM);
     }
 
@@ -135,7 +129,6 @@ function renderSchedule() {
     if (render3pm === null) {
         return;
     } else {
-        console.log(render3pm)
         $("#3pm-block").val(render3pm.threePM);
     }
 
@@ -143,14 +136,12 @@ function renderSchedule() {
     if (render4pm === null) {
         return;
     } else {
-        console.log(render1pm)
         $("#4pm-block").val(render4pm.fourPM);
     }
     var render5pm = JSON.parse(localStorage.getItem("fivePM"));
     if (render5pm === null) {
         return;
     } else {
-        console.log(render5pm)
         $("#5pm-block").val(render5pm.fivePM);
     }
 }
