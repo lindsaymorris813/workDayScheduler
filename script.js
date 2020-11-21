@@ -55,7 +55,7 @@ $(".saveBtn11").on("click", function () {
 $(".saveBtn12").on("click", function () {
     var task = $("#12pm-block").val();
     newTask = { "twelvePM": task }
-    localStorage.setItem("twelveAM", JSON.stringify(newTask));
+    localStorage.setItem("twelvePM", JSON.stringify(newTask));
 });
 $(".saveBtn1").on("click", function () {
     var task = $("#1pm-block").val();
@@ -127,31 +127,31 @@ function renderSchedule() {
     if (render2pm === null) {
         return;
     } else {
-        console.log(render1pm)
+        console.log(render2pm)
         $("#2pm-block").val(render2pm.twoPM);
     }
 
-    var render1pm = JSON.parse(localStorage.getItem("onePM"));
-    if (render1pm === null) {
+    var render3pm = JSON.parse(localStorage.getItem("threePM"));
+    if (render3pm === null) {
         return;
     } else {
-        console.log(render1pm)
-        $("#1pm-block").val(render1pm.onePM);
+        console.log(render3pm)
+        $("#3pm-block").val(render3pm.threePM);
     }
 
-    var render1pm = JSON.parse(localStorage.getItem("onePM"));
-    if (render1pm === null) {
+    var render4pm = JSON.parse(localStorage.getItem("fourPM"));
+    if (render4pm === null) {
         return;
     } else {
         console.log(render1pm)
-        $("#1pm-block").val(render1pm.onePM);
+        $("#4pm-block").val(render4pm.fourPM);
     }
-    var render1pm = JSON.parse(localStorage.getItem("onePM"));
-    if (render1pm === null) {
+    var render5pm = JSON.parse(localStorage.getItem("fivePM"));
+    if (render5pm === null) {
         return;
     } else {
-        console.log(render1pm)
-        $("#1pm-block").val(render1pm.onePM);
+        console.log(render5pm)
+        $("#5pm-block").val(render5pm.fivePM);
     }
 }
 
