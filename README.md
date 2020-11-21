@@ -2,6 +2,9 @@
 [GIPHY of deployed site](https://gph.is/g/Eq0yDK5)
 [STILL of deployed site](https://imgur.com/ZwWsbbA)
 
+[Deployed Site](https://lindsaymorris813.github.io/workDayScheduler/)
+[GitHub Repository](https://github.com/lindsaymorris813/workDayScheduler)
+
 ## User Story
 
 AS AN employee with a busy schedule
