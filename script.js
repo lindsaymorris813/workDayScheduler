@@ -39,57 +39,120 @@ for (var i = 0; i < 9; i++) {
 //Click save button, saves task to task obj
 $(".saveBtn9").on("click", function () {
     var task = $("#9am-block").val();
-    newTask = {"9am-block": task}
-    localStorage.setItem("9AMBLOCK", JSON.stringify(newTask));
+    newTask = { "nineAM": task }
+    localStorage.setItem("nineAM", JSON.stringify(newTask));
 });
 $(".saveBtn10").on("click", function () {
     var task = $("#10am-block").val();
-    newTask = {"10am-block": task}
-    localStorage.setItem("10AMBLOCK", JSON.stringify(newTask));
+    newTask = { "tenAM": task }
+    localStorage.setItem("tenAM", JSON.stringify(newTask));
 });
 $(".saveBtn11").on("click", function () {
     var task = $("#11am-block").val();
-    newTask = {"11am-block": task}
-    localStorage.setItem("11AMBLOCK", JSON.stringify(newTask));
+    newTask = { "elevenAM": task }
+    localStorage.setItem("elevenAM", JSON.stringify(newTask));
 });
 $(".saveBtn12").on("click", function () {
     var task = $("#12pm-block").val();
-    newTask = {"12pm-block": task}
-    localStorage.setItem("12PMBLOCK", JSON.stringify(newTask));
+    newTask = { "twelvePM": task }
+    localStorage.setItem("twelveAM", JSON.stringify(newTask));
 });
 $(".saveBtn1").on("click", function () {
     var task = $("#1pm-block").val();
-    newTask = {"1pm-block": task}
-    localStorage.setItem("1PMBLOCK", JSON.stringify(newTask));
+    newTask = { "onePM": task }
+    localStorage.setItem("onePM", JSON.stringify(newTask));
 });
 $(".saveBtn2").on("click", function () {
     var task = $("#2pm-block").val();
-    newTask = {"2pm-block": task}
-    localStorage.setItem("2PMBLOCK", JSON.stringify(newTask));
+    newTask = { "twoPM": task }
+    localStorage.setItem("twoPM", JSON.stringify(newTask));
 });
 $(".saveBtn3").on("click", function () {
     var task = $("#3pm-block").val();
-    newTask = {"3pm-block": task}
-    localStorage.setItem("3PMBLOCK", JSON.stringify(newTask));
+    newTask = { "threePM": task }
+    localStorage.setItem("threePM", JSON.stringify(newTask));
 });
 $(".saveBtn4").on("click", function () {
     var task = $("#4pm-block").val();
-    newTask = {"4pm-block": task}
-    localStorage.setItem("4PMBLOCK", JSON.stringify(newTask));
+    newTask = { "fourPM": task }
+    localStorage.setItem("fourPM", JSON.stringify(newTask));
 });
 $(".saveBtn5").on("click", function () {
-    var task= $("#5pm-block").val();
-    newTask = {"5pm-block": task}
-    localStorage.setItem("5PMBLOCK", JSON.stringify(newTask));
+    var task = $("#5pm-block").val();
+    newTask = { "fivePM": task }
+    localStorage.setItem("fivePM", JSON.stringify(newTask));
 });
 
 function renderSchedule() {
-    taskObj = JSON.parse(localStorage.getItem("schedule"));
-    if (taskObj === null) {
+    var render9am = JSON.parse(localStorage.getItem("nineAM"));
+    if (render9am === null) {
         return;
     } else {
-       if (taskObj[0])
-        }
+        console.log(render9am)
+        $("#9am-block").val(render9am.nineAM);
+    }
+    var render10am = JSON.parse(localStorage.getItem("tenAM"));
+    if (render10am === null) {
+        return;
+    } else {
+        console.log(render10am)
+        $("#10am-block").val(render10am.tenAM);
+    }
+
+    var render11am = JSON.parse(localStorage.getItem("elevenAM"));
+    if (render11am === null) {
+        return;
+    } else {
+        console.log(render11am)
+        $("#11am-block").val(render11am.elevenAM);
+    }
+
+    var render12pm = JSON.parse(localStorage.getItem("twelvePM"));
+    if (render12pm === null) {
+        return;
+    } else {
+        console.log(render12pm)
+        $("#12pm-block").val(render12pm.twelvePM);
+    }
+
+    var render1pm = JSON.parse(localStorage.getItem("onePM"));
+    if (render1pm === null) {
+        return;
+    } else {
+        console.log(render1pm)
+        $("#1pm-block").val(render1pm.onePM);
+    }
+
+    var render2pm = JSON.parse(localStorage.getItem("twoPM"));
+    if (render2pm === null) {
+        return;
+    } else {
+        console.log(render1pm)
+        $("#2pm-block").val(render2pm.twoPM);
+    }
+
+    var render1pm = JSON.parse(localStorage.getItem("onePM"));
+    if (render1pm === null) {
+        return;
+    } else {
+        console.log(render1pm)
+        $("#1pm-block").val(render1pm.onePM);
+    }
+
+    var render1pm = JSON.parse(localStorage.getItem("onePM"));
+    if (render1pm === null) {
+        return;
+    } else {
+        console.log(render1pm)
+        $("#1pm-block").val(render1pm.onePM);
+    }
+    var render1pm = JSON.parse(localStorage.getItem("onePM"));
+    if (render1pm === null) {
+        return;
+    } else {
+        console.log(render1pm)
+        $("#1pm-block").val(render1pm.onePM);
+    }
 }
 
-renderSchedule();
+    renderSchedule();
