@@ -39,50 +39,57 @@ for (var i = 0; i < 9; i++) {
 //Click save button, saves task to task obj
 $(".saveBtn9").on("click", function () {
     var task = $("#9am-block").val();
-    localStorage.setItem("9am-block", JSON.stringify(newTask));
+    newTask = {"9am-block": task}
+    localStorage.setItem("schedule", JSON.stringify(newTask));
 });
 $(".saveBtn10").on("click", function () {
     var task = $("#10am-block").val();
-    localStorage.setItem("10am-block", JSON.stringify(newTask));
+    newTask = {"10am-block": task}
+    localStorage.setItem("schedule", JSON.stringify(newTask));
 });
 $(".saveBtn11").on("click", function () {
     var task = $("#11am-block").val();
-    localStorage.setItem("11am-block", JSON.stringify(newTask));
+    newTask = {"11am-block": task}
+    localStorage.setItem("schedule", JSON.stringify(newTask));
 });
 $(".saveBtn12").on("click", function () {
     var task = $("#12pm-block").val();
-    localStorage.setItem("12pm-block", JSON.stringify(newTask));
+    newTask = {"12pm-block": task}
+    localStorage.setItem("schedule", JSON.stringify(newTask));
 });
 $(".saveBtn1").on("click", function () {
     var task = $("#1pm-block").val();
-    localStorage.setItem("1pm-block", JSON.stringify(newTask));
+    newTask = {"1pm-block": task}
+    localStorage.setItem("schedule", JSON.stringify(newTask));
 });
 $(".saveBtn2").on("click", function () {
     var task = $("#2pm-block").val();
-    localStorage.setItem("2pm-block", JSON.stringify(newTask));
+    newTask = {"2pm-block": task}
+    localStorage.setItem("schedule", JSON.stringify(newTask));
 });
 $(".saveBtn3").on("click", function () {
     var task = $("#3pm-block").val();
     newTask = {"3pm-block": task}
-    console.log(newTask)
-    localStorage.setItem("3pm-block", JSON.stringify(newTask));
+    localStorage.setItem("schedule", JSON.stringify(newTask));
 });
 $(".saveBtn4").on("click", function () {
     var task = $("#4pm-block").val();
     newTask = {"4pm-block": task}
-    localStorage.setItem("4pm-block", JSON.stringify(newTask));
+    localStorage.setItem("schedule", JSON.stringify(newTask));
 });
 $(".saveBtn5").on("click", function () {
-    var newT= $("#5pm-block").val();
-    localStorage.setItem("5pm-block", JSON.stringify(newTask));
+    var task= $("#5pm-block").val();
+    newTask = {"5pm-block": task}
+    localStorage.setItem("schedule", JSON.stringify(newTask));
 });
 
-// function renderSchedule() {
-//     taskObj = JSON.parse(localStorage.getItem("9am-block"));
-//     if (taskObj === null) {
-//         return;
-//     } else {
-//         $("9am-block").val()=task
-// }
+function renderSchedule() {
+    taskObj = JSON.parse(localStorage.getItem("schedule"));
+    if (taskObj === null) {
+        return;
+    } else {
+       if (taskObj[0])
+        }
+}
 
-// renderSchedule();
+renderSchedule();
