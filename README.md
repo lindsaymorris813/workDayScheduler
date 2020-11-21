@@ -1,6 +1,6 @@
 # workDayScheduler
-GIPHY of deployed site: https://gph.is/g/Eq0yDK5
-STILL of deployed site: https://imgur.com/ZwWsbbA
+[GIPHY of deployed site](https://gph.is/g/Eq0yDK5)
+[STILL of deployed site](https://imgur.com/ZwWsbbA)
 
 ## User Story
 
@@ -37,6 +37,10 @@ Create a simple calendar application that allows a user to save events for each 
 ## Contributing
 
 UNCC Bootcamp base code
+Bootstrap
+FontAwesome
+Google Fonts
+JQuery
 
 ## License
 N/A
